@@ -42,10 +42,16 @@ def main():
         
         updateable.update(dt)
 
+        
+
         for a in asteroids:
             if a.did_hit(p):
                 print("GAME OVER")
                 return 
+            for s in shots:
+                if a.did_hit(s):
+                    s.kill()
+                    a.split()
 
 
         for e in drawable:
